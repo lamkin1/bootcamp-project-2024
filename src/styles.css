@@ -301,6 +301,30 @@ form {
   margin: 0 auto;
 }
 
+/* CSS for blog */
+.blog-post {
+  text-align: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(220, 220, 220);
+  border: 5px solid var(--cg-foam-green);
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.blog-body > img {
+  width: 300px;
+  height: auto;
+  margin: 10px;
+}
+
 /* CSS for footer */
 
 .footer {

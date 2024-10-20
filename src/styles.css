@@ -320,9 +320,15 @@ form {
 }
 
 .blog-body > img {
-  width: 300px;
+  width: 200px;
   height: auto;
   margin: 10px;
+  border-radius: 200px;
+}
+
+.blog-body > p {
+  width: 400px;
+  font-family: "Montserrat", serif;
 }
 
 /* CSS for footer */
@@ -341,8 +347,4 @@ form {
 
 #personal-website-image {
   background-color: var(--cg-white);
-}
-
-.blog-body > p {
-  font-family: "Montserrat", serif;
 }

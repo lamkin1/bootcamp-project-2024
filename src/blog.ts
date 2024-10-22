@@ -9,7 +9,6 @@ type Blog = {
 
 function appendBlogs(blogs: Blog[]) {
   const blogContainer = document.getElementById("blog-container");
-  console.log(blogContainer);
   blogs.forEach((blog) => {
     const blogPost = document.createElement("div");
     blogPost.className = "blog-post";

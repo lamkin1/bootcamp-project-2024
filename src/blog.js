@@ -1,6 +1,5 @@
 function appendBlogs(blogs) {
     var blogContainer = document.getElementById("blog-container");
-    console.log(blogContainer);
     blogs.forEach(function (blog) {
         var blogPost = document.createElement("div");
         blogPost.className = "blog-post";

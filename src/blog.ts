@@ -39,7 +39,14 @@ const myBlogs: Blog[] = [
     imageAlt: "Picture of a Spikeball Pro ball",
     slug: "roundnet-is-life",
   },
+  {
+    title: "Excited for Hack 4 Impact",
+    date: "October 22nd, 2024",
+    description: "I'm excited for all that I've learned and continue to learn through H4I's bootcamp and I'm looking forward to contributing to a project team later this year.",
+    image: "../assets/images/hack_4_impact_logo.png",
+    imageAlt: "Picture of Hack 4 Impact's Logo",
+    slug: "excited-for-h4i"
+  }
 ];
 
 appendBlogs(myBlogs);
-console.log("Hey People!");

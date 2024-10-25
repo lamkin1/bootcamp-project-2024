@@ -8,7 +8,7 @@ function appendBlogs(blogs) {
         var blogBody = document.createElement("div");
         blogBody.className = "blog-body";
         var blogLink = document.createElement("a");
-        blogLink.href = "blogs/" + blog.slug + ".html";
+        blogLink.href = "../" + blog.slug + ".html";
         console.log(blogLink.href);
         var blogImage = document.createElement("img");
         blogImage.src = blog.image;

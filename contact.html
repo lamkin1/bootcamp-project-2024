@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>James' Portfolio</title>
-        <link rel="icon" href="../assets/images/favicon.ico">
+        <title>James' Contact</title>
+        <link rel="icon" href="/assets/images/favicon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link
@@ -25,23 +25,21 @@
         </nav>
         <main>
             <h1 class="page-title">
-                James' Portfolio
+                James' Contact
             </h1>
-            <div class="project">
-                <a href="index.html" id="personal-website-image"><img
-                        src="../assets/images/favicon-large.png"
-                        alt="Picture of James Lamkin" class="project-image">
-                </a>
-                <div class="project-details">
-                    <p class="project-name"><strong>James' Ways of the
-                            Web</strong></p>
-                    <p class="project-description">This is James Lamkin's person
-                        website, which displays information about his life!</p>
-                    <a href="index.html">LEARN MORE</a>
-                </div>
-            </div>
+            <form id="contact-form">
+                <label for="name">Name: </label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email: </label>
+                <input type="text" id="email" required>
+                <label for="message">Message: </label>
+                <textarea id="message" name="message" required>
+                </textarea>
+                <input id="contact-submit-btn" type="submit">
+            </form>
         </main>
         <footer class="footer">© 2023 James&#39 Ways of the Web | All Rights
             Reserved</footer>
     </body>
+
 </html>

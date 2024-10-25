@@ -67,8 +67,9 @@ body {
 }
 
 .navbar a:hover {
-  color: var(--cg-blue);
-  text-decoration: underline;
+  color: var(--cg-white);
+  transition: opacity 0.3s ease-in-out,
+                          color 0.3s ease-in-out;
 }
 
 .navbar a:active {
@@ -84,6 +85,7 @@ body {
 
 .logo a:hover {
   text-decoration: None;
+  color: white
 }
 
 main {
@@ -305,10 +307,11 @@ form {
 .blog-post {
   text-align: center;
   justify-content: space-between;
-  padding: 20px;
+
+  margin: 20px;
   background-color: rgb(220, 220, 220);
   border: 5px solid var(--cg-foam-green);
-  border-radius: 40px;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -319,16 +322,46 @@ form {
   padding: 20px;
 }
 
-.blog-body > img {
+.blog-body > a > img {
   width: 200px;
   height: auto;
   margin: 10px;
-  border-radius: 200px;
+  border-radius: 20px;
 }
 
 .blog-body > p {
   width: 400px;
   font-family: "Montserrat", serif;
+}
+
+/*CSS for individual blog pages*/
+.blog-date {
+  display: flex;
+  justify-content: center;
+  font-family: "Montserrat", serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.blog-page-image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.blog-page-image img {
+  max-width: 400px;
+}
+
+.blog-page-text {
+  display: flex;
+  justify-content: center;
+  font-family: "Montserrat", serif;
+  font-size: 18px;
+}
+
+.blog-page-text p{
+  max-width: 700px;
 }
 
 /* CSS for footer */

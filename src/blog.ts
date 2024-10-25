@@ -16,12 +16,16 @@ function appendBlogs(blogs: Blog[]) {
     title.textContent = blog.title;
     const blogBody = document.createElement("div");
     blogBody.className = "blog-body";
+    const blogLink = document.createElement("a");
+    blogLink.href = "blogs/"+blog.slug+".html";
+    console.log(blogLink.href);
     const blogImage = document.createElement("img");
     blogImage.src = blog.image;
     const description = document.createElement("p");
     description.textContent = blog.description;
     blogPost.appendChild(title);
-    blogBody.appendChild(blogImage);
+    blogLink.append(blogImage)
+    blogBody.appendChild(blogLink);
     blogBody.appendChild(description);
     blogPost.appendChild(blogBody);
     blogContainer?.appendChild(blogPost);
@@ -31,7 +35,7 @@ function appendBlogs(blogs: Blog[]) {
 const myBlogs: Blog[] = [
   {
     title: "Roundnet is Life!",
-    date: "October 20th, 2024",
+    date: "October 20, 2024",
     description:
       "I've been enjoying my roundnet journey and I am excited for sectionals\
         which are coming up very soon!",
@@ -41,7 +45,7 @@ const myBlogs: Blog[] = [
   },
   {
     title: "Excited for Hack 4 Impact",
-    date: "October 22nd, 2024",
+    date: "October 22, 2024",
     description: "I'm excited for all that I've learned and continue to learn through H4I's bootcamp and I'm looking forward to contributing to a project team later this year.",
     image: "../assets/images/hack_4_impact_logo.png",
     imageAlt: "Picture of Hack 4 Impact's Logo",

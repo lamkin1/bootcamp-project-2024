@@ -1,4 +1,4 @@
-.blog-post {
+.project-post {
     text-align: center;
     justify-content: space-between;
     font-family: "DM Sans", serif;
@@ -11,7 +11,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.blog-link {
+.project-link {
     margin: 0 auto;
     font-size: 32px;
     color: darkgreen;
@@ -19,7 +19,7 @@
     
 }
 
-.blog-body {
+.project-body {
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -28,14 +28,13 @@ padding: 20px;
 margin: 20px;
 }
 
-.blog-body > a > img {
+.project-body > a > img {
 max-height: 400px;
 max-width: 800px;
 margin: 10px;
 border-radius: 20px;
 }
 
-.blog-content {
+.project-content {
 font-size: 24px;
-
 }

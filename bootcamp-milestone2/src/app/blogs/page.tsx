@@ -1,12 +1,11 @@
 import React from "react";
 import style from "./page.module.css";
-import Blog from "@/database/blogSchema"
+import Blog from "@/database/blogSchema";
 import connectDB from "@/database/db";
 import Link from "next/link";
+import Image from "next/image";
 
-async function getBlogs(){
-    console.log("Type of connectDB?", typeof connectDB);
-
+export async function getBlogs() {
 	await connectDB() // function from db.ts before
 
 	try {
@@ -35,9 +34,13 @@ export default async function Blogs(){
             <div id="blog-container">
             
             {blogs.map(blog => 
-                <div className={style['blog-post']}>
+                <div key={blog.name} className={style['blog-post']}>
                     <div className={style['blog-body']}>
                         <Link className={style['blog-link']} href={`/blog/${blog.slug}`}> {blog.name} </Link>
+                        <Link href={`/blog/${blog.slug}`}> 
+                            <Image src={blog.image} alt={blog.imageAlt} width={400} height={400}></Image>
+                        </Link>
+                        <p className={style['blog-content']}>{blog.description}</p>
                     </div>
                 </div>
             )}

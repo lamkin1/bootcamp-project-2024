@@ -1,7 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 // typescript type (can also be an interface)
-type Blog = {
+export type Blog = {
         name: string;
 	    slug: string; 
 		date: Date;

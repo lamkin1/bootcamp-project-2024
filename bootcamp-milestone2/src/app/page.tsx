@@ -1,10 +1,26 @@
 import React from "react";
 import style from "./page.module.css"
 import BlogPreview from '@/app/components/blogPreview';
-import myBlogs from '@/app/blogData';
-import Image from "next/image";
+import connectDB from "@/database/db";
+import Blog from '@/database/blogSchema';
 
-export default function Home() {
+async function getBlogs() {
+  await connectDB(); // function from db.ts before
+
+  try {
+    // query for all blogs and sort by date
+    const blogs = await Blog.find().sort({ date: -1 }).orFail();
+    // send a response as the blogs as the message
+    return blogs;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}
+
+export default async function Home() {
+  const blogs = await getBlogs();
+
   return (
     <div>
       <h1 className="page-title">Howdy!</h1>
@@ -43,16 +59,22 @@ export default function Home() {
       </div>
     </div>
     <div key='blog-previews' className={style['blog-previews']}>
-      {myBlogs.map(blog => 
-        <BlogPreview 
-        key={blog.name}
-        name={blog.name}
-        description={blog.description}
-        image={blog.image}
-        posted={blog.posted}
-        imageAlt={blog.imageAlt}
-        slug={blog.slug}
-        />
+      {blogs ? (
+        blogs.map((b) => {
+          const dateString = new Date(b.date).toLocaleDateString();
+          return(
+          <BlogPreview
+            key={b.name}
+            name={b.name}
+            description={b.description}
+            image={b.image}
+            date={b.date.toLocaleDateString()}
+            imageAlt={b.imageAlt}
+            slug={b.slug}
+          />
+          )})
+      ) : (
+        <p>No Blogs Found.</p>
       )}
     </div>
   </div>

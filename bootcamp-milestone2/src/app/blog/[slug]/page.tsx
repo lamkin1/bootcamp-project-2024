@@ -1,33 +1,60 @@
 import React from "react";
-// import { useRouter } from "next/router";
-import { Blog } from "@/app/blogData"; // Import your blog data
-import myBlogs from "@/app/blogData";
 import Image from "next/image";
 import style from "./page.module.css";
-import { getBlogs } from "@/app/blogs/page";
+import Comment from "@/app/components/comments";
+import { IComment } from "@/app/components/comments";
 
-export default async function BlogPost({ params }: {params : {slug : string}}) {
+type Props = {
+  params: {slug: string}
+}
+
+export async function getBlog(slug: string) {
+  console.log(`http://localhost:3000/api/Blogs/${slug}`);
+  try{
+      const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
+          cache: "no-store",	
+      })
+
+      if (!res.ok) {
+          throw new Error("Failed to fetch blog");
+      }
+      return res.json();
+} catch (err: unknown) {
+  console.log(`error: ${err}`);
+  return null;
+  // `` are a special way of allowing JS inside a string
+  // Instead of "error: " + err, we can just do the above
+  // it is simular to formated strings in python --> f"{err}"
+}
+}
+
+export default async function BlogPost({ params }: Props) {
   const { slug } = await params;
-  const blogs = await getBlogs();
-  if (!blogs) {
+  const blog = await getBlog(slug);
+  if (!blog) {
     return <p>Blog post not found.</p>
   }
-  const blog = blogs.find((b : Blog) => b.slug === slug);
 
   if(!blog){return <div>No Blog Post Found.</div>}
-  
-    
-
+  console.log(typeof blog.comments)
   return (
     <div className={style['blog-post']}>
       <h1 className={style['blog-title']}>{blog.name}</h1>
       <Image className={style['blog-image']} src={blog.image} alt={blog.imageAlt} width={400} height={400}/>
-      <p className={style["blog-date"]}>Posted on: {blog.date.toLocaleDateString("en-US", {
+      <p className={style["blog-date"]}>Posted on: {new Date(blog.date).toLocaleDateString("en-US", {
         month: "long",
         day: "numeric",
         year: "numeric"
       })}</p>
       <p className={style["blog-body"]}>{blog.content}</p>
+      <h2 className={style['comment-title']}>Comments</h2>
+      <div className={style['comment-section']}>
+        {blog.comments && blog.comments.length > 0 ? (blog.comments.map((comment: IComment, index: number) => (
+          <Comment key={index} comment={comment} />
+        ))) : (
+          <p>No comments.</p>
+        )}
+      </div>
     </div>
   );
 }

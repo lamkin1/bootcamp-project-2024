@@ -24,9 +24,9 @@
 
 .resume {
   font-family: "DM Sans", monospace;
-  border: solid;
+  border: solid var(--cg-hint-of-mint);
   border-radius: 10px;
-  background-color: var(--cg-hint-of-mint);
+  background-color: var(--cg-light-mint);
   }
 
 .resume-page {

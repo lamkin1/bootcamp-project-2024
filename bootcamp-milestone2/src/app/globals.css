@@ -1,3 +1,45 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* globals.css */
+:root {
+    --cg-black: rgb(30, 32, 32);
+    --cg-white: #ffffff;
+    --cg-foam-green: #00FF7F;
+    --cg-blue: #007BFF;
+    --cg-gray: #B0B0B0;
+    --cg-dark-gray: #333333;
+    --cg-hint-of-mint: #bddcc2;
+    --cg-light-mint: #cee1ce;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Ensure padding and borders are included in width/height */
+}
+
+#root { 
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  flex: 1; /* Pushes the footer down */
+}
+
+.page-title {
+    display: flex;
+    justify-content: center;
+    font-family: "DM Sans", serif;
+    font-weight: 700;
+    font-size: 50px;
+    margin: 10px 0px;
+  }
+
+  .center-horizontal {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+  }

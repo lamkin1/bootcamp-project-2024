@@ -1,0 +1,25 @@
+.blog-preview {
+    text-align: center;
+    justify-content: space-between;
+    background-color: var(--cg-light-mint);
+    border: 5px solid var(--cg-hint-of-mint);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-family: 'DM Sans',serif;
+}
+
+.blog-link{
+    font-size: 24px;
+    text-decoration: underline;
+    color: darkgreen;
+}
+
+.blog-link:visited{
+    color:darkgreen
+}
+
+.blog-image{
+    border-radius: 10px;
+}
+

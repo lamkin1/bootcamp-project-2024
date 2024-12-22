@@ -1,13 +1,18 @@
-.logo a {
-    font-family: "Montserrat", serif;
+
+#main-title {
+    font-family: "DM Sans", serif;
     font-weight: 700;
     padding-left: 10px;
     color: black;
+    text-decoration: none;
+
   }
-  
-  .logo a:hover {
+
+  #main-title:hover {
     text-decoration: None;
-    color: white
+    color: white;
+    transition: opacity 0.3s ease-in-out,
+                            color 0.3s ease-in-out;
   }
 
   .navbar {
@@ -17,49 +22,49 @@
     width: 100%;
     height: 7%;
     z-index: 10;
-  
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-  
+
     /*background-color: var(--cg-black);*/
-    background-image: linear-gradient(to right, var(--cg-foam-green), black);
+    background-image: linear-gradient(to right, var(--cg-hint-of-mint), black);
     color: var(--cg-white);
-    padding: 0px 0px;
-  
+    padding: 8px 0px;
+
     /* Debug border */
     /* border: solid red; */
   }
-  
+
   .nav-list {
     display: flex;
     flex-direction: row;
     position: relative;
     right: 30px;
     list-style: none;
-  
+
     /* Debug border */
     /* border: solid blue; */
   }
-  
-  .navbar a {
-    color: var(--cg-foam-green);
+
+  .nav-list a {
+    color: var(--cg-hint-of-mint);
     font-weight: bold;
     margin: 0 12px;
     text-decoration: none;
     letter-spacing: 2px;
-  
-    font-family: "Montserrat", serif;
+
+    font-family: "DM Sans", serif;
     font-weight: 700;
   }
-  
-  .navbar a:hover {
+
+  .nav-list a:hover {
     color: var(--cg-white);
     transition: opacity 0.3s ease-in-out,
                             color 0.3s ease-in-out;
   }
-  
+
   .navbar a:active {
     color: var(--cg-blue);
   }

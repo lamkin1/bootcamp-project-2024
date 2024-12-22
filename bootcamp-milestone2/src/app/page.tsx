@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./page.module.css"
-import BlogPreview from '@/components/blogPreview';
-import myBlogs from '@/blogData';
+import BlogPreview from '@/app/components/blogPreview';
+import myBlogs from '@/app/blogData';
 import Image from "next/image";
 
 export default function Home() {

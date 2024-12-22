@@ -1,7 +1,7 @@
 import React from "react";
 // import { useRouter } from "next/router";
-import { Blog } from "@/blogData"; // Import your blog data
-import myBlogs from "@/blogData";
+import { Blog } from "@/app/blogData"; // Import your blog data
+import myBlogs from "@/app/blogData";
 import Image from "next/image";
 import style from "./page.module.css";
 

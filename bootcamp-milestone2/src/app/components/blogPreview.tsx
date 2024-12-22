@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-import { Blog } from '@/blogData';
+import { Blog } from '@/app/blogData';
 
 export default function BlogPreview(props: Blog) {
   return (

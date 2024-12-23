@@ -1,6 +1,6 @@
 type IComment = {
-  user: String;
-  comment: String;
+  user: string;
+  comment: string;
   date: Date;
 }
 

@@ -37,7 +37,7 @@ export async function POST(req: NextRequest, { params }: IParams) {
     try{ 
     console.log('Update result:', project);
     return NextResponse.json({project})
-    } catch (error) {
+    } catch  {
         return NextResponse.json({ success: false, message: "Failed to add comment." }, { status: 500 });
     }
 }

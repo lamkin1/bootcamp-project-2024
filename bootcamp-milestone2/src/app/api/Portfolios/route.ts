@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
 		const projects = await projectSchema.find(); // No filter for all projects
 
 	        return NextResponse.json(projects)
-	    } catch (err) {
+	    } catch {
 	        return NextResponse.json('Projects not found.', { status: 400 })
 	    }
 }

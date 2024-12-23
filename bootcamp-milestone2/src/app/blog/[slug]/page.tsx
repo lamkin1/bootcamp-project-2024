@@ -11,6 +11,7 @@ type BlogProps = {
 
 async function getBlog(slug: string): Promise<Blog | null> {
   try{
+      console.log(slug);
       const res = await fetch(`https://bootcamp-project-2024-five.vercel.app/api/Blogs/${slug}`, {
           cache: "no-store",	
       })
@@ -18,7 +19,7 @@ async function getBlog(slug: string): Promise<Blog | null> {
       if (!res.ok) {
           throw new Error("Failed to fetch blog");
       }
-      return res.json();
+      return await res.json();
 } catch (err: unknown) {
   console.log(`error: ${err}`);
   return null;

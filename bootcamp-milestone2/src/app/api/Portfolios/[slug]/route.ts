@@ -8,11 +8,11 @@ type IParams = {
 		}
 }
 
-export async function GET(req: NextRequest, { params }: IParams) {
+export async function GET (req: NextRequest, { params }: { params: Promise<{ slug: string }> })  {
     await connectDB() 
 
 		try{
-		const { slug } = params;
+		const slug = (await params).slug;
 
 		const project = await projectSchema.findOne({ slug }).orFail()
 

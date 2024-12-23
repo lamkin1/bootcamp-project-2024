@@ -3,12 +3,13 @@ import Image from "next/image";
 import style from "./page.module.css";
 import Comment from "@/app/components/comments";
 import { IComment } from "@/app/components/comments";
+import { Blog } from "@/database/blogSchema";
 
-type Props = {
-  params: {slug: string}
+type BlogProps = {
+  params: Promise<{slug: string}>;
 }
 
-export async function getBlog(slug: string) {
+async function getBlog(slug: string): Promise<Blog | null> {
   try{
       const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
           cache: "no-store",	
@@ -27,7 +28,7 @@ export async function getBlog(slug: string) {
 }
 }
 
-export default async function BlogPost({ params }: Props) {
+export default async function BlogPost({ params }: BlogProps) {
   const { slug } = await params;
   const blog = await getBlog(slug);
   if (!blog) {

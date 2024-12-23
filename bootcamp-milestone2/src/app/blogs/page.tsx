@@ -4,9 +4,8 @@ import Blog from "@/database/blogSchema";
 import connectDB from "@/database/db";
 import Link from "next/link";
 import Image from "next/image";
-import { NextResponse } from "next/server";
 
-export async function getBlogs() {
+async function getBlogs() {
 	await connectDB() // function from db.ts before
 
 	try {

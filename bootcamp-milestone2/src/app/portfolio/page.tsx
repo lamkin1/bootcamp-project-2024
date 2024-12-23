@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-export async function getProjects() {
+async function getProjects() {
     await connectDB()
 
 	try {
@@ -14,8 +14,7 @@ export async function getProjects() {
         
         console.log(projects)
 	    return projects
-	} catch (err) {
-        console.log('err');
+	} catch{
 	    return null
 	}
 }

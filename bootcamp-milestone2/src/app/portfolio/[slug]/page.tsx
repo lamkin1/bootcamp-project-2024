@@ -4,11 +4,11 @@ import style from "./page.module.css";
 import Comment from "@/app/components/comments";
 import { IComment } from "@/app/components/comments";
 
-type Props = {
-    params: {slug: string}
+type PortfolioProps = {
+    params: Promise<{slug: string}>;
   }
 
-export async function getProject(slug: string) {
+async function getProject(slug: string) {
 	try{
         const res = await fetch(`http://localhost:3000/api/Portfolios/${slug}`, {
             cache: "no-store",	
@@ -27,7 +27,7 @@ export async function getProject(slug: string) {
   }
 }
 
-export default async function Portfolio({ params }: Props){
+export default async function Portfolio({ params }: PortfolioProps){
 const { slug } = await params;
   const project = await getProject(slug);
   if (!project) {

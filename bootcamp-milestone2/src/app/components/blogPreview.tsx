@@ -2,7 +2,6 @@ import React from "react";
 import style from "./blogPreview.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import Blog from '@/database/blogSchema';
 
 interface Props {
     name: string;

@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-// import { IComment } from "@/app/components/comments";
+
 
 type IComment = {
 	user: string;
@@ -8,7 +8,7 @@ type IComment = {
 }
 
 // typescript type (can also be an interface)
-type Blog = {
+export type Blog = {
 	name: string;
 	date: Date;
 	description: string;

@@ -9,7 +9,6 @@ type Props = {
 }
 
 export async function getBlog(slug: string) {
-  console.log(`http://localhost:3000/api/Blogs/${slug}`);
   try{
       const res = await fetch(`http://localhost:3000/api/Blogs/${slug}`, {
           cache: "no-store",	
@@ -36,7 +35,6 @@ export default async function BlogPost({ params }: Props) {
   }
 
   if(!blog){return <div>No Blog Post Found.</div>}
-  console.log(typeof blog.comments)
   return (
     <div className={style['blog-post']}>
       <h1 className={style['blog-title']}>{blog.name}</h1>

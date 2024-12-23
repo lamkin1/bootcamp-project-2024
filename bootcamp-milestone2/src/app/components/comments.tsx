@@ -6,12 +6,12 @@ export type IComment = {
     comment: string;
     time: Date;
 }
+
 type CommentProps = {
     comment: IComment;
 }
 
 function parseCommentTime(time: Date){
-    console.log(typeof time)
 	return new Date(time).toLocaleString();
 }
 

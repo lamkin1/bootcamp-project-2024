@@ -11,7 +11,6 @@ let connection: typeof mongoose;
  */
 async function connectDB() {
   if (!connection) {
-    console.log(process.env.MONGO_URI)
     connection = await mongoose.connect(url);
     return connection;
   }

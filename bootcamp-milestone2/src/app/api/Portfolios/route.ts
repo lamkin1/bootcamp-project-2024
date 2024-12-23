@@ -5,7 +5,6 @@ import projectSchema from "@/database/projectSchema"
 
 export async function GET(req: NextRequest) {
     await connectDB() 
-
 		try{
 
 		const projects = await projectSchema.find(); // No filter for all projects

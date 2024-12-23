@@ -10,7 +10,7 @@ type PortfolioProps = {
 
 async function getProject(slug: string) {
 	try{
-        const res = await fetch(`http://localhost:3000/api/Portfolios/${slug}`, {
+        const res = await fetch(`https://bootcamp-project-2024-five.vercel.app/api/Portfolios/${slug}`, {
             cache: "no-store",	
         })
   

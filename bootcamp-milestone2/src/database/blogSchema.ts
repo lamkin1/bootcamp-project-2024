@@ -9,7 +9,7 @@ type IComment = {
 
 // typescript type (can also be an interface)
 type Blog = {
-	title: string;
+	name: string;
 	date: Date;
 	description: string;
 	image: string;
@@ -21,7 +21,7 @@ type Blog = {
 
 // mongoose schema 
 const blogSchema = new Schema<Blog>({
-		title: { type: String, required: true },
+		name: { type: String, required: true },
 		date: { type: Date, required: false, default: new Date()},
 		description: { type: String, required: true },
 		image: { type: String, required: true },

@@ -10,8 +10,6 @@ type IParams = {
 
 export async function GET(req: NextRequest, { params }: IParams) {
 
-    console.log('hit', blogSchema);
-
     await connectDB() // function from db.ts before
 		const { slug } = params // another destructure
 

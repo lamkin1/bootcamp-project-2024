@@ -58,10 +58,9 @@ export default async function Home() {
         </div>
       </div>
     </div>
-    <div key='blog-previews' className={style['blog-previews']}>
+    <div key='blog-previewss' className={style['blog-previews']}>
       {blogs ? (
         blogs.map((b) => {
-          const dateString = new Date(b.date).toLocaleDateString();
           return(
           <BlogPreview
             key={b.name}

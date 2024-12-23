@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import connectDB from "@/database/db"
 import { IComment } from '@/app/components/comments'
-import Blog from '@/database/blogSchema'
+import Project from '@/database/projectSchema'
+
 
 
 type IParams = {
@@ -18,7 +19,7 @@ export async function POST(req: NextRequest, { params }: IParams) {
     //validate body and blog
     const { user, comment } = await req.json();
     console.log("Comment:" , comment)
-    const blog = await Blog.findOne({ slug }).orFail();
+    const project = await Project.findOne({ slug }).orFail();
 
     const time = new Date();
         
@@ -28,14 +29,14 @@ export async function POST(req: NextRequest, { params }: IParams) {
         time: time,
     };
 
-    blog.comments.push(newComment);
-    console.log(blog.comments)
+    project.comments.push(newComment);
+    console.log(project.comments)
 
     
-    await blog.save();
+    await project.save();
     try{ 
-    console.log('Update result:', blog);
-    return NextResponse.json({blog})
+    console.log('Update result:', project);
+    return NextResponse.json({project})
     } catch (error) {
         return NextResponse.json({ success: false, message: "Failed to add comment." }, { status: 500 });
     }

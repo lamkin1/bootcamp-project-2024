@@ -3,16 +3,19 @@ import style from "./page.module.css";
 import Project from "@/database/projectSchema"
 import connectDB from "@/database/db";
 import Image from "next/image";
+import Link from "next/link";
+
 
 export async function getProjects() {
-	await connectDB() // function from db.ts before
+    await connectDB()
 
 	try {
-			// query for all blogs and sort by date
-	    const projects = await Project.find().sort({ name: -1 }).orFail()
-			// send a response as the blogs as the message
+        const projects = await Project.find().orFail();
+        
+        console.log(projects)
 	    return projects
 	} catch (err) {
+        console.log('err');
 	    return null
 	}
 }
@@ -29,6 +32,8 @@ export default async function Portfolio() {
         )
     }
 
+    console.log(projects.map(p => p.slug));
+
     return(
         <div>
             <h1 className="page-title">Portfolio</h1>
@@ -37,12 +42,15 @@ export default async function Portfolio() {
             {projects.map(project => 
                 <div key={project.name} className={style['project-post']}>
                     <div className={style['project-body']}>
-                        <h1 className={style['project-title']}>{project.name}</h1>
-                        <Image src={project.image} alt={project.imageAlt} width={600} height={600}></Image>
+                        <Link className={style['project-link']} href={`/portfolio/${project.slug}`}> {project.name} </Link>
+                        <Link href={`/portfolio/${project.slug}`}> 
+                            <Image src={project.image} alt={project.imageAlt} width={600} height={600}></Image>
+                        </Link>
                         <p className={style['project-content']}>{project.description}</p>
                     </div>
                 </div>
             )}
+            
             </div>
         </div>
     )

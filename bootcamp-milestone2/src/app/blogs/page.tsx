@@ -28,10 +28,12 @@ export default async function Blogs(){
         </div>
     )}
 
+    console.log(blogs.map(p => p.slug));
+
     return(
         <div>
             <h1 className="page-title">Blogs</h1>
-            <div id="blog-container">
+            <div key="blog-container" id="blog-container">
             
             {blogs.map(blog => 
                 <div key={blog.name} className={style['blog-post']}>

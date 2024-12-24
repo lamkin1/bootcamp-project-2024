@@ -1,4 +1,3 @@
-// BlogPostClient.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -19,6 +18,9 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
     time: new Date(),
   });
 
+  // State for managing the comments
+  const [comments, setComments] = useState<IComment[]>(blog.comments || []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -31,21 +33,30 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
     e.preventDefault();
 
     try {
-        const res = await fetch(`https://bootcamp-project-2024-five.vercel.app/api/Blogs/${blog.slug}/comment`, {
-            method: "POST",
-            body: JSON.stringify(formData),
-        });
+      const res = await fetch(`https://bootcamp-project-2024-five.vercel.app/api/Blogs/${blog.slug}/comment`, {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
 
       if (!res.ok) {
         throw new Error("Failed to post comment");
-        // throw new Error(JSON.stringify(formData));
       }
 
+      // After successfully posting the comment, update the state
+      const newComment: IComment = {
+        user: formData.user,
+        comment: formData.comment,
+        time: new Date(),
+      };
+
+      // Update the local state to include the new comment
+      setComments((prevComments) => [...prevComments, newComment]);
+
+      // Clear the form data
       setFormData({ user: "", comment: "", time: new Date() });
-      window.location.reload();
     } catch (error) {
-        console.error("Error submitting comment:", error, JSON.stringify(formData));
-        return null;
+      console.error("Error submitting comment:", error, JSON.stringify(formData));
+      return null;
     }
   };
 
@@ -70,8 +81,8 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
       <p className={style["blog-body"]}>{blog.content}</p>
       <h2 className={style["comment-title"]}>Comments</h2>
       <div className={style["comment-section"]}>
-        {blog.comments && blog.comments.length > 0 ? (
-          blog.comments.map((comment: IComment, index: number) => (
+        {comments.length > 0 ? (
+          comments.map((comment: IComment, index: number) => (
             <Comment key={index} comment={comment} />
           ))
         ) : (

@@ -31,12 +31,8 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
     e.preventDefault();
 
     try {
-        alert(JSON.stringify(formData))
         const res = await fetch(`https://bootcamp-project-2024-five.vercel.app/api/Blogs/${blog.slug}/comment`, {
             method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
             body: JSON.stringify(formData),
         });
 

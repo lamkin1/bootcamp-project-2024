@@ -33,7 +33,7 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`https://bootcamp-project-2024-five.vercel.app/api/Blogs/${blog.slug}/comment`, {
+      const res = await fetch(`/api/Blogs/${blog.slug}/comment`, {
         method: "POST",
         body: JSON.stringify(formData),
       });
@@ -51,6 +51,8 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
 
       // Update the local state to include the new comment
       setComments((prevComments) => [...prevComments, newComment]);
+
+    alert('hit setComments')
 
       // Clear the form data
       setFormData({ user: "", comment: "", time: new Date() });

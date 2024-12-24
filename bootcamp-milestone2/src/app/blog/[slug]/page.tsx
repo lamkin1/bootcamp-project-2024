@@ -6,7 +6,7 @@ import BlogPostClient from "@/app/components/BlogPostClient";
 import { Blog } from "@/database/blogSchema";
 
 type BlogProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 async function getBlog(slug: string): Promise<Blog | null> {
@@ -27,7 +27,6 @@ async function getBlog(slug: string): Promise<Blog | null> {
 
 export default async function BlogPost({ params }: BlogProps) {
   const { slug } = await params;
-  console.log(slug);
   const blog = await getBlog(slug);
 
   if (!blog) {

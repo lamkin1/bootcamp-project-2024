@@ -89,13 +89,15 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
           <p>No comments.</p>
         )}
       </div>
-      <div>
-        <form className={style["contact-form"]} onSubmit={handleSubmit}>
-          <label className={style["contact-label"]} htmlFor="name">
+      <div className={style['comment-form-div']}>
+        <h2 className={style['comment-title']}>Add A Comment:</h2>
+        <form className={style['comment-form']} onSubmit={handleSubmit}>
+            
+          <label className={style["comment-label"]} htmlFor="name">
             Name:
           </label>
           <input
-            className={style["contact-text"]}
+            className={style["comment-text"]}
             type="text"
             id="user"
             name="user"
@@ -103,11 +105,11 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
             onChange={handleChange}
             required
           />
-          <label className={style["contact-label"]} htmlFor="comment">
+          <label className={style["comment-label"]} htmlFor="comment">
             Comment:
           </label>
           <textarea
-            className={style["contact-text"]}
+            className={style["comment-text"]}
             id="comment"
             name="comment"
             value={formData.comment}

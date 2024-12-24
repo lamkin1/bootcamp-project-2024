@@ -53,3 +53,46 @@
     border: 5px solid var(--cg-light-mint);
     background-color: var(--cg-hint-of-mint);
   }
+
+  .comment-form-div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comment-form {
+    padding: 10px;
+    border: 5px solid var(--cg-hint-of-mint);
+    width: 50%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    font-size: 24px;
+    font-family: 'DM Sans', serif;
+  }
+
+
+  
+.contact-label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+}
+
+.contact-text {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+}
+
+.submit-button {
+    margin: 10px auto;
+    width: 40%;
+    font-size: 16px;
+    text-align: center;
+}

@@ -33,7 +33,7 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
     e.preventDefault();
 
     try {
-      const res = await fetch(`https://bootcamp-project-2024-five.vercel.app/api/Blogs/${blog.slug}/comment`, {
+      const res = await fetch(`/api/Blogs/${blog.slug}/comment`, { //https://bootcamp-project-2024-five.vercel.app
         method: "POST",
         body: JSON.stringify(formData),
       });

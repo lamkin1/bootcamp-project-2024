@@ -42,6 +42,7 @@ export default function BlogPostClient({ blog }: BlogPostClientProps) {
       }
 
       setFormData({ user: "", comment: "", time: new Date() });
+      window.location.reload();
     } catch (error) {
         console.error("Error submitting comment:", error, JSON.stringify(formData));
         return null;
